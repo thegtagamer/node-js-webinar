@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>Todo App Webinar</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/styles.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>My Todo App</h2>
+      <div class="add-task">
+        <form action="/task/add" method="POST">
+            <div class="task-input">
+          <input type="text" name="new_task" placeholder="eg: Buy groceries" />
+          <button>+</button>
+          </div>
+          <h2>My Task List</h2>
+
+          <% for( var i = 0; i < task.length; i++){ %>
+          <li>
+            <input type="checkbox" name="check" value="<%= task[i] %>" /> <%=
+            task[i] %>
+          </li>
+          <% } %>
+
+          <button class="task-done" formaction="/task/delete" type="submit" id="top">Done</button>
+        </form>
+      </div>
+      <div class="finished-task">
+        <h2>Finished Tasks</h2>
+
+        <% for(var i = 0; i < completed.length; i++){ %>
+        <li><input type="checkbox" checked /><%= completed[i] %></li>
+        <% } %>
+      </div>
+    </div>
+    </div>
+  </body>
+</html>
